@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simran Autolines | Pune's Trusted Pre-Owned Car Dealer</title>
+    <meta name="description" content="Simran Autolines - Pune's most trusted used car dealer. Genuine vehicles with verified records. Owned by Mr. Deepak Keswani & Mr. Naresh Keswani.">
+    <meta property="og:title" content="Simran Autolines | Genuine Cars. Genuine Trust.">
+    <meta property="og:description" content="Pune's trusted pre-owned car destination. 4.9★ rating. 11+ cars in stock.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --navy: #0a1628; --navy-light: #1a2744; --gold: #c9a84c; --gold-light: #e0c878; --white: #ffffff; --off-white: #f8f9fa; --grey: #6b7280; --dark-grey: #374151; --light-grey: #e5e7eb; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--dark-grey); line-height: 1.6; overflow-x: hidden; }
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .logo i { font-size: 1.3rem; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; position: relative; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+        .hero { min-height: 100vh; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
+        .hero-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 2; }
+        .hero-content h1 { font-size: 3.5rem; font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-content h1 span { color: var(--gold); }
+        .hero-content p { font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 2rem; max-width: 500px; }
+        .hero-badges { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+        .badge { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.6rem 1rem; border-radius: 50px; color: var(--white); font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(255,255,255,0.1); }
+        .badge i { color: var(--gold); }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn { padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border: none; }
+        .btn-primary { background: var(--gold); color: var(--navy); }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3); }
+        .btn-secondary { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.3); }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+        .hero-visual { position: relative; }
+        .hero-car { width: 100%; max-width: 600px; height: 400px; background: linear-gradient(135deg, var(--navy-light) 0%, #243656 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+        .hero-car i { font-size: 8rem; color: rgba(255,255,255,0.1); }
+        .floating-card { position: absolute; background: var(--white); padding: 1rem 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 0.8rem; }
+        .floating-card.card-1 { top: 20px; left: -30px; animation: float 3s ease-in-out infinite; }
+        .floating-card.card-2 { bottom: 40px; right: -20px; animation: float 3s ease-in-out infinite 1.5s; }
+        .floating-card i { font-size: 1.5rem; color: var(--gold); }
+        .floating-card div { font-size: 0.85rem; }
+        .floating-card strong { display: block; color: var(--navy); font-weight: 700; }
+        .floating-card span { color: var(--grey); font-size: 0.75rem; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        section { padding: 5rem 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; color: var(--navy); margin-bottom: 0.5rem; }
+        .section-header p { color: var(--grey); font-size: 1.1rem; }
+        .gold-line { width: 60px; height: 4px; background: var(--gold); margin: 1rem auto; border-radius: 2px; }
+        .about { background: var(--off-white); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-image { position: relative; }
+        .about-img-box { width: 100%; height: 450px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .about-img-box i { font-size: 5rem; color: rgba(255,255,255,0.2); }
+        .experience-badge { position: absolute; bottom: -20px; right: 30px; background: var(--gold); color: var(--navy); padding: 1.5rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3); }
+        .experience-badge .num { font-size: 2.5rem; font-weight: 800; display: block; line-height: 1; }
+        .experience-badge .text { font-size: 0.8rem; font-weight: 600; }
+        .about-content h3 { font-size: 2rem; color: var(--navy); margin-bottom: 1rem; }
+        .about-content p { color: var(--grey); margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .owners { display: flex; gap: 2rem; margin-top: 2rem; }
+        .owner { display: flex; align-items: center; gap: 1rem; }
+        .owner-avatar { width: 50px; height: 50px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: 700; font-size: 1.2rem; }
+        .owner-info strong { display: block; color: var(--navy); font-weight: 700; }
+        .owner-info span { font-size: 0.85rem; color: var(--grey); }
+        .quote-box { margin-top: 2rem; padding: 1.5rem; background: var(--white); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; font-style: italic; color: var(--dark-grey); }
+        .quote-box i { color: var(--gold); font-size: 1.2rem; margin-right: 0.5rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .feature-card { background: var(--white); padding: 2.5rem 2rem; border-radius: 20px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s; border: 1px solid var(--light-grey); }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-color: var(--gold); }
+        .feature-icon { width: 70px; height: 70px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+        .feature-icon i { font-size: 1.5rem; color: var(--gold); }
+        .feature-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 0.5rem; }
+        .feature-card p { font-size: 0.9rem; color: var(--grey); }
+        .inventory { background: var(--off-white); }
+        .inventory-filters { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center; }
+        .filter-btn { padding: 0.6rem 1.5rem; border: 1px solid var(--light-grey); background: var(--white); border-radius: 50px; cursor: pointer; font-weight: 500; color: var(--dark-grey); transition: all 0.3s; font-family: 'Inter', sans-serif; }
+        .filter-btn:hover, .filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+        .cars-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
+        .car-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.3s; border: 1px solid var(--light-grey); }
+        .car-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .car-image { height: 220px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: var(--navy); }
+        .car-image img { width: 100%; height: 100%; object-fit: cover; }
+        .car-badge { position: absolute; top: 15px; left: 15px; background: var(--gold); color: var(--navy); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; z-index: 2; }
+        .car-badge.electric { background: #10b981; color: white; }
+        .car-badge.limited { background: #ef4444; color: white; }
+        .car-info { padding: 1.5rem; }
+        .car-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem; }
+        .car-title { font-size: 1.1rem; font-weight: 700; color: var(--navy); line-height: 1.3; }
+        .car-year { background: var(--off-white); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--dark-grey); white-space: nowrap; }
+        .car-specs { display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap; }
+        .car-spec { display: flex; align-items: center; gap: 0.3rem; font-size: 0.85rem; color: var(--grey); }
+        .car-spec i { color: var(--gold); font-size: 0.9rem; }
+        .car-features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+        .car-feature { background: var(--off-white); padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; color: var(--dark-grey); font-weight: 500; }
+        .car-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--light-grey); }
+        .car-reg { font-size: 0.8rem; color: var(--grey); display: flex; align-items: center; gap: 0.3rem; }
+        .car-reg i { color: var(--gold); }
+        .car-btn { padding: 0.6rem 1.2rem; background: var(--navy); color: var(--white); border: none; border-radius: 50px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif; }
+        .car-btn:hover { background: var(--gold); color: var(--navy); }
+        .inventory-note { text-align: center; margin-top: 2rem; color: var(--grey); font-size: 0.95rem; }
+        .inventory-note i { color: var(--gold); margin-right: 0.3rem; }
+        .testimonials { background: var(--navy); color: var(--white); }
+        .testimonials .section-header h2 { color: var(--white); }
+        .testimonials .section-header p { color: rgba(255,255,255,0.7); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .testimonial-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2rem; transition: all 0.3s; }
+        .testimonial-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px); }
+        .testimonial-stars { color: var(--gold); margin-bottom: 1rem; font-size: 0.9rem; }
+        .testimonial-text { font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; color: rgba(255,255,255,0.9); }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .testimonial-avatar { width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); font-weight: 700; font-size: 1.1rem; }
+        .testimonial-name { font-weight: 600; font-size: 0.95rem; }
+        .testimonial-badge { font-size: 0.75rem; color: var(--gold); display: flex; align-items: center; gap: 0.3rem; margin-top: 0.2rem; }
+        .google-reviews-link { text-align: center; margin-top: 2.5rem; }
+        .google-reviews-link a { color: var(--gold); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; }
+        .google-reviews-link a:hover { gap: 0.8rem; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .contact-info h3 { font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; }
+        .contact-info p { color: var(--grey); margin-bottom: 2rem; }
+        .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-item { display: flex; align-items: start; gap: 1rem; }
+        .contact-icon { width: 50px; height: 50px; background: var(--off-white); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-icon i { color: var(--gold); font-size: 1.2rem; }
+        .contact-text strong { display: block; color: var(--navy); margin-bottom: 0.2rem; }
+        .contact-text a { color: var(--grey); text-decoration: none; transition: color 0.3s; }
+        .contact-text a:hover { color: var(--gold); }
+        .contact-text span { color: var(--grey); font-size: 0.95rem; }
+        .map-container { width: 100%; height: 300px; border-radius: 20px; overflow: hidden; margin-top: 2rem; border: 1px solid var(--light-grey); }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        .contact-form { background: var(--white); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid var(--light-grey); }
+        .contact-form h3 { font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+        .contact-form p { color: var(--grey); margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--dark-grey); font-size: 0.9rem; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.9rem 1rem; border: 1px solid var(--light-grey); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: all 0.3s; background: var(--off-white); }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--gold); background: var(--white); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-submit { width: 100%; padding: 1rem; background: var(--navy); color: var(--white); border: none; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif; }
+        .form-submit:hover { background: var(--gold); color: var(--navy); }
+        .footer { background: var(--navy); color: var(--white); padding: 3rem 0 1.5rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
+        .footer-brand .logo { margin-bottom: 1rem; display: inline-flex; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; }
+        .footer-links h4 { color: var(--gold); margin-bottom: 1rem; font-size: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.6rem; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-social { display: flex; gap: 1rem; margin-top: 1rem; }
+        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s; }
+        .footer-social a:hover { background: var(--gold); color: var(--navy); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); z-index: 999; text-decoration: none; transition: all 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5); }
+        @media (max-width: 1024px) { .features-grid { grid-template-columns: repeat(2, 1fr); } .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--navy); flex-direction: column; padding: 1.5rem 2rem; gap: 1rem; } .nav-links.active { display: flex; } .mobile-menu-btn { display: block; } .hero-container { grid-template-columns: 1fr; text-align: center; } .hero-content h1 { font-size: 2.2rem; } .hero-badges { justify-content: center; } .hero-buttons { justify-content: center; } .hero-visual { display: none; } .about-grid { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr; } .testimonials-grid { grid-template-columns: 1fr; } .contact-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } .cars-grid { grid-template-columns: 1fr; } .owners { flex-direction: column; gap: 1rem; } section { padding: 3rem 0; } .section-header h2 { font-size: 1.8rem; } }
+        @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } .hero-content h1 { font-size: 1.8rem; } }
+            .car-badge.sold { background: #dc2626; color: white; font-size: 0.85rem; padding: 0.4rem 1rem; }
+        .car-card.sold-out { opacity: 0.6; }
+        .car-card.sold-out .car-btn { background: #9ca3af; cursor: not-allowed; pointer-events: none; }
+        .car-card.sold-out .car-btn::after { content: ' — SOLD'; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fas fa-car"></i> Simran Autolines</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#inventory">Inventory</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Find Your Perfect <span>Pre-Owned Car</span> at Simran Autolines</h1>
+                <p>Pune's most trusted used car dealer — genuine vehicles, genuine records, genuine people.</p>
+                <div class="hero-badges">
+                    <div class="badge"><i class="fas fa-star"></i> 4.9★ Google Rating</div>
+                    <div class="badge"><i class="fas fa-users"></i> 18+ Happy Customers</div>
+                    <div class="badge"><i class="fas fa-file-check"></i> Genuine Records</div>
+                    <div class="badge"><i class="fas fa-car"></i> 11+ Cars in Stock</div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#inventory" class="btn btn-primary"><i class="fas fa-search"></i> Browse Our Cars</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fas fa-map-marker-alt"></i> Visit Us</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-car"><i class="fas fa-car-side"></i></div>
+                <div class="floating-card card-1"><i class="fas fa-shield-alt"></i><div><strong>Verified</strong><span>All cars checked</span></div></div>
+                <div class="floating-card card-2"><i class="fas fa-handshake"></i><div><strong>Trusted</strong><span>4.9★ on Google</span></div></div>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <div class="about-img-box"><i class="fas fa-car"></i></div>
+                    <div class="experience-badge"><span class="num">10+</span><span class="text">Years of<br>Trust</span></div>
+                </div>
+                <div class="about-content reveal">
+                    <h3>About Simran Autolines</h3>
+                    <p>Located in the heart of Dapodi, Pune, Simran Autolines has built a reputation as one of the most trustworthy names in the pre-owned car market. We believe in complete transparency — every vehicle in our inventory comes with verified service history and genuine documentation.</p>
+                    <p>Our customers don't just buy cars; they build lasting relationships with us. From the moment you walk in to long after you've driven home, we're here to ensure your experience is smooth, honest, and memorable.</p>
+                    <div class="owners">
+                        <div class="owner"><div class="owner-avatar">DK</div><div class="owner-info"><strong>Mr. Deepak Keswani</strong><span>Co-Founder</span></div></div>
+                        <div class="owner"><div class="owner-avatar">NK</div><div class="owner-info"><strong>Mr. Naresh Keswani</strong><span>Co-Founder</span></div></div>
+                    </div>
+                    <div class="quote-box"><i class="fas fa-quote-left"></i> We don't just sell cars. We build relationships.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="why-us">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Why Choose Us</h2>
+                <div class="gold-line"></div>
+                <p>What makes Simran Autolines different from the rest</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-file-alt"></i></div><h3>Genuine Records</h3><p>Every car's history is verified and documented. No surprises, no hidden past.</p></div>
+                <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div><h3>Transparent Deals</h3><p>No hidden fees, no last-minute additions. Honest pricing from day one.</p></div>
+                <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div><h3>Hassle-Free Process</h3><p>Quick paperwork, smooth transfers. We handle the complexity so you don't have to.</p></div>
+                <div class="feature-card reveal"><div class="feature-icon"><i class="fas fa-headset"></i></div><h3>After-Sale Support</h3><p>RTO transfers, documentation help — we stay with you even after the sale.</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="inventory" id="inventory">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Our Inventory</h2>
+                <div class="gold-line"></div>
+                <p>Handpicked, verified, and ready for you</p>
+            </div>
+            <div class="inventory-filters reveal">
+                <button class="filter-btn active" data-filter="all">All Cars</button>
+                <button class="filter-btn" data-filter="petrol">Petrol</button>
+                <button class="filter-btn" data-filter="diesel">Diesel</button>
+                <button class="filter-btn" data-filter="electric">Electric</button>
+                <button class="filter-btn" data-filter="automatic">Automatic</button>
+                <button class="filter-btn" data-filter="manual">Manual</button>
+            </div>
+            <div class="cars-grid" id="carsGrid">
+                <div class="car-card reveal" data-fuel="petrol" data-trans="manual">
+                    <div class="car-image"><img src="car_01_verna_fluidic.jpg" alt="Hyundai Verna Fluidic 1.6 SX"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Hyundai Verna Fluidic 1.6 SX</div><div class="car-year">2015</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</div><div class="car-spec"><i class="fas fa-cog"></i> Manual</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 64,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">2 Airbags</span><span class="car-feature">Alloy Wheels</span><span class="car-feature">Push Button Start</span><span class="car-feature">Reverse Camera</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 14 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Hyundai Verna Fluidic 1.6 SX')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="diesel" data-trans="manual">
+                    <div class="car-image"><span class="car-badge limited">Limited Edition</span><img src="car_02_kia_sonet.jpg" alt="Kia Sonet 1.5 Diesel HTX Plus Anniversary"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Kia Sonet 1.5 Diesel HTX Plus Anniversary</div><div class="car-year">2022</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</div><div class="car-spec"><i class="fas fa-cog"></i> Manual</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 39,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">Sunroof</span><span class="car-feature">Push Button Start</span><span class="car-feature">Airbags</span><span class="car-feature">Alloy Wheels</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Kia Sonet Anniversary Edition')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="petrol" data-trans="manual">
+                    <div class="car-image"><img src="car_03_honda_city.jpg" alt="Honda City i-VTEC 1.5 V"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Honda City i-VTEC 1.5 V</div><div class="car-year">2022</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</div><div class="car-spec"><i class="fas fa-cog"></i> Manual</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 29,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">2 Airbags</span><span class="car-feature">Alloy Wheels</span><span class="car-feature">Navigation</span><span class="car-feature">Service History</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Honda City i-VTEC 1.5 V')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="diesel" data-trans="manual">
+                    <div class="car-image"><img src="car_04_kia_carens.jpg" alt="Kia Carens 1.5 Luxury Pack 7-Str"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Kia Carens 1.5 Luxury Pack 7-Str</div><div class="car-year">2022</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</div><div class="car-spec"><i class="fas fa-cog"></i> Manual (6+1)</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 45,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">6 Airbags</span><span class="car-feature">Push Button Start</span><span class="car-feature">Navigation</span><span class="car-feature">Alloy Wheels</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Kia Carens 7-Str')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="diesel" data-trans="manual">
+                    <div class="car-image"><img src="car_05_swift_dzire.jpg" alt="Maruti Swift Dzire ZDI"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Maruti Swift Dzire ZDI</div><div class="car-year">—</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</div><div class="car-spec"><i class="fas fa-cog"></i> Manual</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 1,06,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">2 Airbags</span><span class="car-feature">Alloy Wheels</span><span class="car-feature">Android Music</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Maruti Swift Dzire ZDI')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="petrol" data-trans="automatic">
+                    <div class="car-image"><img src="car_06_grand_i10.jpg" alt="Hyundai Grand i10 Magna 1.2 Kappa"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Hyundai Grand i10 Magna 1.2 Kappa</div><div class="car-year">2017</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</div><div class="car-spec"><i class="fas fa-cog"></i> Automatic</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 43,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">Service History</span><span class="car-feature">Well Maintained</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Hyundai Grand i10')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="electric" data-trans="automatic">
+                    <div class="car-image"><span class="car-badge electric">⚡ Electric</span><img src="car_07_nexon_ev.jpg" alt="Tata Nexon XZ Plus EV"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Tata Nexon XZ Plus EV</div><div class="car-year">2022</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-bolt"></i> Electric</div><div class="car-spec"><i class="fas fa-cog"></i> Automatic</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 33,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">200-250 km Range</span><span class="car-feature">Choice Number</span><span class="car-feature">Full Charge Ready</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Tata Nexon EV')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="diesel" data-trans="automatic">
+                    <div class="car-image"><img src="car_08_verna_crdi.jpg" alt="Hyundai Verna 1.6 SX Plus CRDi"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Hyundai Verna 1.6 SX Plus CRDi</div><div class="car-year">2020</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</div><div class="car-spec"><i class="fas fa-cog"></i> Automatic</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 43,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">Sunroof</span><span class="car-feature">Ventilated Seats</span><span class="car-feature">Wireless Charging</span><span class="car-feature">6 Airbags</span><span class="car-feature">Keyless Entry</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Hyundai Verna SX Plus CRDi')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="petrol" data-trans="automatic">
+                    <div class="car-image"><img src="car_09_venue.jpg" alt="Hyundai Venue 1.0 DCT Turbo SX (O)"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Hyundai Venue 1.0 DCT Turbo SX (O)</div><div class="car-year">2020</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</div><div class="car-spec"><i class="fas fa-cog"></i> Automatic</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 53,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">Sunroof</span><span class="car-feature">Push Button Start</span><span class="car-feature">Navigation</span><span class="car-feature">Android Deck</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Hyundai Venue DCT Turbo')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="petrol" data-trans="automatic">
+                    <div class="car-image"><img src="car_10_corolla.jpg" alt="Toyota Corolla Altis 1.8 VL"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Toyota Corolla Altis 1.8 VL</div><div class="car-year">2018</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</div><div class="car-spec"><i class="fas fa-cog"></i> Automatic</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 53,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">New Shape (Facelift)</span><span class="car-feature">Service History</span><span class="car-feature">Well Maintained</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 14 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Toyota Corolla Altis')">Call for Price</button></div>
+                    </div>
+                </div>
+                <div class="car-card reveal" data-fuel="diesel" data-trans="manual">
+                    <div class="car-image"><img src="car_11_jeep_compass.jpg" alt="Jeep Compass Sports Plus 2.0"></div>
+                    <div class="car-info">
+                        <div class="car-header"><div class="car-title">Jeep Compass Sports Plus 2.0</div><div class="car-year">2019</div></div>
+                        <div class="car-specs"><div class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</div><div class="car-spec"><i class="fas fa-cog"></i> Manual</div><div class="car-spec"><i class="fas fa-tachometer-alt"></i> 48,000 km</div></div>
+                        <div class="car-features"><span class="car-feature">Rugged Build</span><span class="car-feature">Well Maintained</span></div>
+                        <div class="car-footer"><div class="car-reg"><i class="fas fa-map-pin"></i> MH 12 | 1st Owner</div><button class="car-btn" onclick="contactForCar('Jeep Compass Sports Plus')">Call for Price</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="inventory-note reveal"><i class="fas fa-info-circle"></i> Prices available on call or WhatsApp. Inventory updates daily — call for latest availability.</div>
+        </div>
+    </section>
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>What Our Customers Say</h2>
+                <div class="gold-line"></div>
+                <p>Real reviews from real customers on Google</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"An absolute pleasure to deal with Deepak bhai and Naresh at Simran Autolines. I got myself a beautiful low run and well maintained Innova Crysta 2.8 Z from them. They are really good people to deal with."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">P</div><div><div class="testimonial-name">Prateik Parija</div><div class="testimonial-badge"><i class="fas fa-check-circle"></i> Verified Google Review</div></div></div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Mr. Naresh is a very professional and honest person. I bought pre-owned Tata Hexa from him. He has all vehicles with genuine records. He gave me the best service during the purchase."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">A</div><div><div class="testimonial-name">Anand Bhosekar</div><div class="testimonial-badge"><i class="fas fa-check-circle"></i> Verified Google Review</div></div></div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"I have a wonderful experience dealing with Mr. Naresh for a car trade. Genuine, attentive, responsive and fast. Would definitely recommend Simran Autolines."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">V</div><div><div class="testimonial-name">Viren Deshmukh</div><div class="testimonial-badge"><i class="fas fa-check-circle"></i> Verified Google Review</div></div></div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Simran Autolines helped me with the transfer of my car. Mr. Naresh is an exceptional person who goes above and beyond. Very proactive and gave timely updates. A trustworthy and transparent service."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">S</div><div><div class="testimonial-name">Sameer Phatak</div><div class="testimonial-badge"><i class="fas fa-check-circle"></i> Verified Google Review</div></div></div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"Genuine trustworthy. Good vehicle and the biggest thing is the trust. Naresh was very helpful, supportive and was very honest."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">R</div><div><div class="testimonial-name">Rajender Patyal</div><div class="testimonial-badge"><i class="fas fa-check-circle"></i> Verified Google Review</div></div></div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="testimonial-text">"One of the best car traders. You will definitely get genuine car at Simran Autoline. I am one of the happiest customers. Well maintained take & drive cars available."</p>
+                    <div class="testimonial-author"><div class="testimonial-avatar">S</div><div><div class="testimonial-name">Suyog Kumbhar</div><div class="testimonial-badge"><i class="fas fa-check-circle"></i> Verified Google Review</div></div></div>
+                </div>
+            </div>
+            <div class="google-reviews-link reveal">
+                <a href="https://www.google.com/search?q=simran+autolines+pune+reviews" target="_blank">Read all reviews on Google <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Visit Us</h2>
+                <div class="gold-line"></div>
+                <p>We're here to help you find your perfect car</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Get in Touch</h3>
+                    <p>Visit our showroom in Dapodi, Pune or reach out to us directly. We're open every day and always happy to help.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-text"><strong>Address</strong><span>No. 33A, Sr. 5, Old Mumbai-Pune Hwy,<br>near Lunkad Hospital, Dapodi, Pune,<br>Maharashtra 411012</span></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-text"><strong>Phone</strong><a href="tel:+919890013800">+91 98900 13800</a><br><a href="tel:+919890000478">+91 98900 00478</a></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="contact-text"><strong>WhatsApp</strong><a href="https://wa.me/919890013800">+91 98900 13800</a><br><a href="https://wa.me/919890000478">+91 98900 00478</a></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div class="contact-text"><strong>Hours</strong><span>Open Daily: 10:00 AM – 7:30 PM</span></div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.0!2d73.83!3d18.58!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDM0JzQ4LjAiTiA3M8KwNDknNDguMCJF!5e0!3m2!1sen!2sin!4v1600000000000" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form reveal">
+                    <h3>Send us a Message</h3>
+                    <p>Interested in a car? Fill out the form and we'll get back to you shortly.</p>
+                    <form id="contactForm">
+                        <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Enter your name" required></div>
+                        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required></div>
+                        <div class="form-group"><label for="email">Email (Optional)</label><input type="email" id="email" name="email" placeholder="Enter your email"></div>
+                        <div class="form-group">
+                            <label for="car">Interested Car</label>
+                            <select id="car" name="car">
+                                <option value="">Select a car (optional)</option>
+                                <option value="Hyundai Verna Fluidic 1.6 SX">Hyundai Verna Fluidic 1.6 SX</option>
+                                <option value="Kia Sonet Anniversary Edition">Kia Sonet Anniversary Edition</option>
+                                <option value="Honda City i-VTEC 1.5 V">Honda City i-VTEC 1.5 V</option>
+                                <option value="Kia Carens 7-Str">Kia Carens 7-Str</option>
+                                <option value="Maruti Swift Dzire ZDI">Maruti Swift Dzire ZDI</option>
+                                <option value="Hyundai Grand i10">Hyundai Grand i10</option>
+                                <option value="Tata Nexon EV">Tata Nexon EV</option>
+                                <option value="Hyundai Verna SX Plus CRDi">Hyundai Verna SX Plus CRDi</option>
+                                <option value="Hyundai Venue DCT Turbo">Hyundai Venue DCT Turbo</option>
+                                <option value="Toyota Corolla Altis">Toyota Corolla Altis</option>
+                                <option value="Jeep Compass Sports Plus">Jeep Compass Sports Plus</option>
+                                <option value="Other">Other / Not Sure</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us what you're looking for..."></textarea></div>
+                        <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><i class="fas fa-car"></i> Simran Autolines</a>
+                    <p>Pune's most trusted destination for genuine pre-owned cars. Every vehicle comes with verified records and our promise of transparency.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/919890013800" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="tel:+919890013800"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#inventory">Inventory</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Cars</h4>
+                    <ul>
+                        <li><a href="#inventory">Petrol Cars</a></li>
+                        <li><a href="#inventory">Diesel Cars</a></li>
+                        <li><a href="#inventory">Automatic</a></li>
+                        <li><a href="#inventory">Electric</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+919890013800">+91 98900 13800</a></li>
+                        <li><a href="tel:+919890000478">+91 98900 00478</a></li>
+                        <li><a href="https://wa.me/919890013800">WhatsApp Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Simran Autolines. All rights reserved. | Pune's Trusted Pre-Owned Car Destination.</p>
+            </div>
+        </div>
+    </footer>
+    <a href="https://wa.me/919890013800" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); }); });
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => { revealElements.forEach(el => { const windowHeight = window.innerHeight; const elementTop = el.getBoundingClientRect().top; const revealPoint = 100; if (elementTop < windowHeight - revealPoint) { el.classList.add('active'); } }); };
+        window.addEventListener('scroll', revealOnScroll); revealOnScroll();
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => { if (window.scrollY > 50) { navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)'; } else { navbar.style.boxShadow = 'none'; } });
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const carCards = document.querySelectorAll('.car-card');
+        filterBtns.forEach(btn => { btn.addEventListener('click', () => { filterBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); const filter = btn.dataset.filter; carCards.forEach(card => { if (filter === 'all') { card.style.display = 'block'; } else if (card.dataset.fuel === filter || card.dataset.trans === filter) { card.style.display = 'block'; } else { card.style.display = 'none'; } }); }); });
+        function contactForCar(carName) { const carSelect = document.getElementById('car'); if (carSelect) { for (let i = 0; i < carSelect.options.length; i++) { if (carSelect.options[i].text.includes(carName.split(' ').slice(0, 2).join(' '))) { carSelect.selectedIndex = i; break; } } } document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }
+        document.getElementById('contactForm').addEventListener('submit', function(e) { e.preventDefault(); const name = document.getElementById('name').value; const phone = document.getElementById('phone').value; const car = document.getElementById('car').value; const message = document.getElementById('message').value; let whatsappMessage = 'Hi Simran Autolines, I am ' + name + ' (' + phone + ').'; if (car) whatsappMessage += ' I am interested in: ' + car + '.'; if (message) whatsappMessage += ' Message: ' + message; window.open('https://wa.me/919890013800?text=' + encodeURIComponent(whatsappMessage), '_blank'); });
+    </script>
+</body>
+</html>
